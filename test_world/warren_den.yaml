@@ -1,0 +1,26 @@
+# Warren den — KoboldChieftain spawns here (den_room_tag pins it to this
+# specific room). Carries both kobold_warren (so pack kobolds count this
+# as part of the warren and spawn here when the chieftain is alive) and
+# kobold_warren_den (so the chieftain's rule resolves to this single
+# room). Per architecture decision #16 both tags use the same
+# `mob_area` category.
+
+entities:
+  - deployment_id: 1
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: The Chieftain's Den
+    location: null
+    description: |
+      A high-vaulted chamber lit by a bonfire in a stone pit. A crude
+      throne of bones and antlers sits at the back of the room — the
+      seat of whatever passes for kobold authority down here.
+    tags:
+      - { key: kobold_warren, category: mob_area }
+      - { key: kobold_warren_den, category: mob_area }
+
+    exits:
+      - deployment_id: 2
+        typeclass: evennia.objects.objects.DefaultExit
+        name: north
+        aliases: [n, entrance]
+        destination: { deployment_file: test_world/warren_entrance.yaml, deployment_id: 1 }

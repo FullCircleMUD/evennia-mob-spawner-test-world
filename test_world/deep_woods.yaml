@@ -1,0 +1,19 @@
+# Deep woods — second woods_wolves room. Dead end past the clearing.
+
+entities:
+  - deployment_id: 1
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: Deep in the Woods
+    location: null
+    description: |
+      The trees crowd close together here and the light is dim and
+      green. Something rustles in the undergrowth just out of sight.
+    tags:
+      - { key: woods_wolves, category: mob_area }
+
+    exits:
+      - deployment_id: 2
+        typeclass: evennia.objects.objects.DefaultExit
+        name: south
+        aliases: [s, clearing]
+        destination: { deployment_file: test_world/woods_clearing.yaml, deployment_id: 1 }

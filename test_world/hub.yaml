@@ -1,0 +1,32 @@
+# Hub — neutral starting room. Deliberately carries no mob_area tag so
+# no spawn rule treats it as eligible; gives a player somewhere to stand
+# without triggering mob spawning.
+
+entities:
+  - deployment_id: 1
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: A Quiet Crossroads
+    location: null
+    description: |
+      A modest crossroads where three paths meet. The road north leads
+      into shadowed woods, an eastern track runs out into open meadow,
+      and a narrow southern tunnel descends into rough earth.
+
+    exits:
+      - deployment_id: 2
+        typeclass: evennia.objects.objects.DefaultExit
+        name: north
+        aliases: [n, woods]
+        destination: { deployment_file: test_world/woods_clearing.yaml, deployment_id: 1 }
+
+      - deployment_id: 3
+        typeclass: evennia.objects.objects.DefaultExit
+        name: east
+        aliases: [e, meadow]
+        destination: { deployment_file: test_world/meadow.yaml, deployment_id: 1 }
+
+      - deployment_id: 4
+        typeclass: evennia.objects.objects.DefaultExit
+        name: south
+        aliases: [s, warren]
+        destination: { deployment_file: test_world/warren_entrance.yaml, deployment_id: 1 }

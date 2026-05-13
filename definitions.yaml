@@ -1,0 +1,9 @@
+# evennia-world-builder definitions for the mob-spawner test world.
+#
+# Two hierarchical levels: zone (folder containing rooms) and room
+# (each room is a YAML file). Matches the convention world-builder
+# itself tests against in evennia-world-builder-test-yaml.
+levels: [zone, room]
+
+# This is fixture content; no CI gate in place. Library default.
+repo-ci-pre-validation: false

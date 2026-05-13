@@ -1,0 +1,26 @@
+# Woods clearing — first of two rooms tagged for the woods_wolves spawn
+# area. Connected to the hub (south) and to deep_woods (north).
+
+entities:
+  - deployment_id: 1
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: A Forest Clearing
+    location: null
+    description: |
+      Sunlight filters through tall pines into a moss-floored clearing.
+      Wolf-prints in the soft earth cross every direction.
+    tags:
+      - { key: woods_wolves, category: mob_area }
+
+    exits:
+      - deployment_id: 2
+        typeclass: evennia.objects.objects.DefaultExit
+        name: south
+        aliases: [s, hub]
+        destination: { deployment_file: test_world/hub.yaml, deployment_id: 1 }
+
+      - deployment_id: 3
+        typeclass: evennia.objects.objects.DefaultExit
+        name: north
+        aliases: [n, deep]
+        destination: { deployment_file: test_world/deep_woods.yaml, deployment_id: 1 }

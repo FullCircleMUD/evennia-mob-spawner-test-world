@@ -1,0 +1,19 @@
+# Meadow — sole room tagged for meadow_rabbits. Dead end off the hub.
+
+entities:
+  - deployment_id: 1
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: An Open Meadow
+    location: null
+    description: |
+      Wildflowers nod in a gentle breeze. The grass is short and well-
+      grazed; small dark pellets in the dirt suggest plenty of rabbits.
+    tags:
+      - { key: meadow_rabbits, category: mob_area }
+
+    exits:
+      - deployment_id: 2
+        typeclass: evennia.objects.objects.DefaultExit
+        name: west
+        aliases: [w, hub]
+        destination: { deployment_file: test_world/hub.yaml, deployment_id: 1 }

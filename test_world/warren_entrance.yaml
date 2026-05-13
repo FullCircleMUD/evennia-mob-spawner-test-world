@@ -1,0 +1,27 @@
+# Warren entrance — first kobold_warren room. Pack kobolds can spawn
+# here when there's a living chieftain in the den. Connected to the hub
+# (north) and the den (south).
+
+entities:
+  - deployment_id: 1
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: A Rough Tunnel
+    location: null
+    description: |
+      The tunnel is roughly hewn through clay and stone. Crude torches
+      flicker in iron brackets; the air smells of smoke and wet fur.
+    tags:
+      - { key: kobold_warren, category: mob_area }
+
+    exits:
+      - deployment_id: 2
+        typeclass: evennia.objects.objects.DefaultExit
+        name: north
+        aliases: [n, hub]
+        destination: { deployment_file: test_world/hub.yaml, deployment_id: 1 }
+
+      - deployment_id: 3
+        typeclass: evennia.objects.objects.DefaultExit
+        name: south
+        aliases: [s, den]
+        destination: { deployment_file: test_world/warren_den.yaml, deployment_id: 1 }

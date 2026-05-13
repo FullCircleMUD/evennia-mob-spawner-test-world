@@ -1,0 +1,13 @@
+entries:
+  - name: hub
+    kind: file
+  - name: woods_clearing
+    kind: file
+  - name: deep_woods
+    kind: file
+  - name: meadow
+    kind: file
+  - name: warren_entrance
+    kind: file
+  - name: warren_den
+    kind: file
