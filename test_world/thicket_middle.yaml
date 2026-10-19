@@ -1,0 +1,32 @@
+# Thicket middle — second boar_thicket room. Between the edge and the
+# hollow.
+
+file_id: 5549ca2d-0138-455f-ae91-2d69dca393a5
+entities:
+  - entity_id: 53cc5a8e-148b-4b3c-9504-dec44e8b9269
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: Within the Thicket
+    location: null
+    description: |
+      Thorny growth arches overhead into a low green tunnel. Trampled
+      paths branch off in every direction and none of them go far.
+    tags:
+      - { key: boar_thicket, category: mob_area }
+
+    exits:
+      - entity_id: 68c49570-83fc-40e1-b844-38e430c001cb
+        typeclass: evennia.objects.objects.DefaultExit
+        name: east
+        aliases: [e, edge]
+        destination: d823a05a-66ec-417f-a9b4-5ffb5d82757d   # thicket_edge
+
+      - entity_id: 14b88dc0-a704-4a5b-bc65-538db57a2ee9
+        typeclass: evennia.objects.objects.DefaultExit
+        name: west
+        aliases: [w, hollow]
+        destination: 8830c291-2f00-4cc7-8507-260bd5f79f16   # thicket_hollow
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - e46e8100-1d28-4ff8-b63e-253b1caf8eee   # thicket_edge: west
+  - f1915b7b-460d-4652-91a7-af544bb276fe   # thicket_hollow: east

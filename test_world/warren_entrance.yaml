@@ -1,9 +1,9 @@
-# Warren entrance — first kobold_warren room. Pack kobolds can spawn
-# here when there's a living chieftain in the den. Connected to the hub
-# (north) and the den (south).
+# Warren entrance — first kobold_warren room, where kobolds spawn.
+# Connected to the hub (north) and the den (south).
 
+file_id: 6e003fb2-2467-4702-aa33-e6a2f71a830b
 entities:
-  - deployment_id: 1
+  - entity_id: fd85ef0f-b338-448e-8731-6bdafee380a0
     typeclass: evennia.objects.objects.DefaultRoom
     name: A Rough Tunnel
     location: null
@@ -14,14 +14,19 @@ entities:
       - { key: kobold_warren, category: mob_area }
 
     exits:
-      - deployment_id: 2
+      - entity_id: 67727254-ab35-48a3-a7be-149cde4fb00f
         typeclass: evennia.objects.objects.DefaultExit
         name: north
         aliases: [n, hub]
-        destination: { deployment_file: test_world/hub.yaml, deployment_id: 1 }
+        destination: 831c5db8-1047-497f-874a-6d70b673d841   # hub
 
-      - deployment_id: 3
+      - entity_id: 19f427a4-de39-485a-99f3-9b4ca1a5b82e
         typeclass: evennia.objects.objects.DefaultExit
         name: south
         aliases: [s, den]
-        destination: { deployment_file: test_world/warren_den.yaml, deployment_id: 1 }
+        destination: cb9f87b0-8b9e-428e-88e7-5f6f56d51755   # warren_den
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 0fd772b5-edc9-40ed-8049-ca94ccc0fc14   # hub: south
+  - e0fdeb26-38eb-415b-ab91-8948d9f849a9   # warren_den: north

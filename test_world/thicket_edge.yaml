@@ -1,0 +1,32 @@
+# Thicket edge — first of three boar_thicket rooms, the pack-spawning
+# test area. West of the hub; leads on to the thicket's middle.
+
+file_id: 8fa044d6-462d-4bad-a64d-ae4b95705bc6
+entities:
+  - entity_id: d823a05a-66ec-417f-a9b4-5ffb5d82757d
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: The Edge of a Thicket
+    location: null
+    description: |
+      Brambles close in from both sides of a muddy track. The ground is
+      churned with hoofprints and the air smells of wet earth.
+    tags:
+      - { key: boar_thicket, category: mob_area }
+
+    exits:
+      - entity_id: aa43923d-2c2e-417b-a12e-cb49ab0fa8e1
+        typeclass: evennia.objects.objects.DefaultExit
+        name: east
+        aliases: [e, hub]
+        destination: 831c5db8-1047-497f-874a-6d70b673d841   # hub
+
+      - entity_id: e46e8100-1d28-4ff8-b63e-253b1caf8eee
+        typeclass: evennia.objects.objects.DefaultExit
+        name: west
+        aliases: [w, middle]
+        destination: 53cc5a8e-148b-4b3c-9504-dec44e8b9269   # thicket_middle
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - e339a682-079c-406e-b3e6-4ce81fc13974   # hub: west
+  - 68c49570-83fc-40e1-b844-38e430c001cb   # thicket_middle: east

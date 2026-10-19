@@ -11,3 +11,9 @@ entries:
     kind: file
   - name: warren_den
     kind: file
+  - name: thicket_edge
+    kind: file
+  - name: thicket_middle
+    kind: file
+  - name: thicket_hollow
+    kind: file

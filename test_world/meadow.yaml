@@ -1,7 +1,8 @@
 # Meadow — sole room tagged for meadow_rabbits. Dead end off the hub.
 
+file_id: d5190c81-2a92-447d-b76c-ffad2e3fa7f9
 entities:
-  - deployment_id: 1
+  - entity_id: 45c77994-a418-4464-9752-9cf7a9ae14d4
     typeclass: evennia.objects.objects.DefaultRoom
     name: An Open Meadow
     location: null
@@ -12,8 +13,12 @@ entities:
       - { key: meadow_rabbits, category: mob_area }
 
     exits:
-      - deployment_id: 2
+      - entity_id: aa36b21a-4384-46a4-93cf-47efbeeb5d38
         typeclass: evennia.objects.objects.DefaultExit
         name: west
         aliases: [w, hub]
-        destination: { deployment_file: test_world/hub.yaml, deployment_id: 1 }
+        destination: 831c5db8-1047-497f-874a-6d70b673d841   # hub
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 3fecd93f-888f-491c-b49c-18c4cdb1cfcc   # hub: east

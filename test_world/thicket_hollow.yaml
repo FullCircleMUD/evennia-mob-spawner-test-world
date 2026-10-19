@@ -1,0 +1,24 @@
+# Thicket hollow — third boar_thicket room. Dead end past the middle.
+
+file_id: 1cd08cbf-a009-41b8-bfeb-27008c3ab203
+entities:
+  - entity_id: 8830c291-2f00-4cc7-8507-260bd5f79f16
+    typeclass: evennia.objects.objects.DefaultRoom
+    name: A Hollow in the Thicket
+    location: null
+    description: |
+      The brambles open onto a trampled hollow, the earth rooted up and
+      the roots of the nearest trees gnawed bare.
+    tags:
+      - { key: boar_thicket, category: mob_area }
+
+    exits:
+      - entity_id: f1915b7b-460d-4652-91a7-af544bb276fe
+        typeclass: evennia.objects.objects.DefaultExit
+        name: east
+        aliases: [e, middle]
+        destination: 53cc5a8e-148b-4b3c-9504-dec44e8b9269   # thicket_middle
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 14b88dc0-a704-4a5b-bc65-538db57a2ee9   # thicket_middle: west

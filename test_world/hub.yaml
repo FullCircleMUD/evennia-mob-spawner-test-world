@@ -2,31 +2,46 @@
 # no spawn rule treats it as eligible; gives a player somewhere to stand
 # without triggering mob spawning.
 
+file_id: d7935868-240f-4975-a4e7-bcaddb770248
 entities:
-  - deployment_id: 1
+  - entity_id: 831c5db8-1047-497f-874a-6d70b673d841
     typeclass: evennia.objects.objects.DefaultRoom
     name: A Quiet Crossroads
     location: null
     description: |
-      A modest crossroads where three paths meet. The road north leads
+      A modest crossroads where four paths meet. The road north leads
       into shadowed woods, an eastern track runs out into open meadow,
-      and a narrow southern tunnel descends into rough earth.
+      a narrow southern tunnel descends into rough earth, and a muddy
+      path west vanishes into a thicket.
 
     exits:
-      - deployment_id: 2
+      - entity_id: 9cf6c8a8-2d75-4e5d-880d-df7b2dc10801
         typeclass: evennia.objects.objects.DefaultExit
         name: north
         aliases: [n, woods]
-        destination: { deployment_file: test_world/woods_clearing.yaml, deployment_id: 1 }
+        destination: 2419e17c-0f4b-4da0-b601-65fb94001faf   # woods_clearing
 
-      - deployment_id: 3
+      - entity_id: 3fecd93f-888f-491c-b49c-18c4cdb1cfcc
         typeclass: evennia.objects.objects.DefaultExit
         name: east
         aliases: [e, meadow]
-        destination: { deployment_file: test_world/meadow.yaml, deployment_id: 1 }
+        destination: 45c77994-a418-4464-9752-9cf7a9ae14d4   # meadow
 
-      - deployment_id: 4
+      - entity_id: 0fd772b5-edc9-40ed-8049-ca94ccc0fc14
         typeclass: evennia.objects.objects.DefaultExit
         name: south
         aliases: [s, warren]
-        destination: { deployment_file: test_world/warren_entrance.yaml, deployment_id: 1 }
+        destination: fd85ef0f-b338-448e-8731-6bdafee380a0   # warren_entrance
+
+      - entity_id: e339a682-079c-406e-b3e6-4ce81fc13974
+        typeclass: evennia.objects.objects.DefaultExit
+        name: west
+        aliases: [w, thicket]
+        destination: d823a05a-66ec-417f-a9b4-5ffb5d82757d   # thicket_edge
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 6e8ccd0b-d0bc-4d56-b19c-1ea32ae47c72   # woods_clearing: south
+  - aa36b21a-4384-46a4-93cf-47efbeeb5d38   # meadow: west
+  - 67727254-ab35-48a3-a7be-149cde4fb00f   # warren_entrance: north
+  - aa43923d-2c2e-417b-a12e-cb49ab0fa8e1   # thicket_edge: east

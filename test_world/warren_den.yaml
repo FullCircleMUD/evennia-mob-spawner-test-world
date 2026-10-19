@@ -1,12 +1,11 @@
-# Warren den — KoboldChieftain spawns here (den_room_tag pins it to this
-# specific room). Carries both kobold_warren (so pack kobolds count this
-# as part of the warren and spawn here when the chieftain is alive) and
-# kobold_warren_den (so the chieftain's rule resolves to this single
-# room). Per architecture decision #16 both tags use the same
-# `mob_area` category.
+# Warren den — the single-room area. Carries kobold_warren, so kobolds
+# spawn here as well as in the entrance, and kobold_warren_den, which no
+# other room carries, so the chieftain's rule can only ever place him
+# here. Both tags use the same `mob_area` category.
 
+file_id: 932c7620-7f79-478a-8696-3e0fbefdbb6f
 entities:
-  - deployment_id: 1
+  - entity_id: cb9f87b0-8b9e-428e-88e7-5f6f56d51755
     typeclass: evennia.objects.objects.DefaultRoom
     name: The Chieftain's Den
     location: null
@@ -19,8 +18,12 @@ entities:
       - { key: kobold_warren_den, category: mob_area }
 
     exits:
-      - deployment_id: 2
+      - entity_id: e0fdeb26-38eb-415b-ab91-8948d9f849a9
         typeclass: evennia.objects.objects.DefaultExit
         name: north
         aliases: [n, entrance]
-        destination: { deployment_file: test_world/warren_entrance.yaml, deployment_id: 1 }
+        destination: fd85ef0f-b338-448e-8731-6bdafee380a0   # warren_entrance
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 19f427a4-de39-485a-99f3-9b4ca1a5b82e   # warren_entrance: south

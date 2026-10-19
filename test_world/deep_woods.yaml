@@ -1,7 +1,8 @@
 # Deep woods — second woods_wolves room. Dead end past the clearing.
 
+file_id: 87d3b957-4bdc-449b-abf7-3aefd3744b64
 entities:
-  - deployment_id: 1
+  - entity_id: 6ba1a7a4-99f7-42da-a0dc-69552fe6769f
     typeclass: evennia.objects.objects.DefaultRoom
     name: Deep in the Woods
     location: null
@@ -12,8 +13,12 @@ entities:
       - { key: woods_wolves, category: mob_area }
 
     exits:
-      - deployment_id: 2
+      - entity_id: f897e9d6-346c-4ea4-be20-6f553c9297ba
         typeclass: evennia.objects.objects.DefaultExit
         name: south
         aliases: [s, clearing]
-        destination: { deployment_file: test_world/woods_clearing.yaml, deployment_id: 1 }
+        destination: 2419e17c-0f4b-4da0-b601-65fb94001faf   # woods_clearing
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 3caaba92-a16e-49af-90e2-434089ded332   # woods_clearing: north

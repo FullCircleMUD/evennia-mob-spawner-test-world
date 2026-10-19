@@ -1,8 +1,9 @@
 # Woods clearing — first of two rooms tagged for the woods_wolves spawn
 # area. Connected to the hub (south) and to deep_woods (north).
 
+file_id: 0bf89690-ee2f-4694-8ac5-dfd92d214cfe
 entities:
-  - deployment_id: 1
+  - entity_id: 2419e17c-0f4b-4da0-b601-65fb94001faf
     typeclass: evennia.objects.objects.DefaultRoom
     name: A Forest Clearing
     location: null
@@ -13,14 +14,19 @@ entities:
       - { key: woods_wolves, category: mob_area }
 
     exits:
-      - deployment_id: 2
+      - entity_id: 6e8ccd0b-d0bc-4d56-b19c-1ea32ae47c72
         typeclass: evennia.objects.objects.DefaultExit
         name: south
         aliases: [s, hub]
-        destination: { deployment_file: test_world/hub.yaml, deployment_id: 1 }
+        destination: 831c5db8-1047-497f-874a-6d70b673d841   # hub
 
-      - deployment_id: 3
+      - entity_id: 3caaba92-a16e-49af-90e2-434089ded332
         typeclass: evennia.objects.objects.DefaultExit
         name: north
         aliases: [n, deep]
-        destination: { deployment_file: test_world/deep_woods.yaml, deployment_id: 1 }
+        destination: 6ba1a7a4-99f7-42da-a0dc-69552fe6769f   # deep_woods
+
+# Exits in other files that lead here, so this file rebuilds on its own.
+incoming_exits:
+  - 9cf6c8a8-2d75-4e5d-880d-df7b2dc10801   # hub: north
+  - f897e9d6-346c-4ea4-be20-6f553c9297ba   # deep_woods: south
